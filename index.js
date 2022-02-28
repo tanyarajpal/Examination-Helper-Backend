@@ -19,16 +19,16 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+app.get('/',(req,res)=>{
+    res.send("welcome");
+})
+
+
 app.use('/api/examination-helper/syllabus',syllabusRoutes);
 app.use('/api/examination-helper/timetable',timeTableRoutes);
 app.use('/api/examination-helper/auth',authRoutes);
 
 mongoose.connect(url,{serverSelectionTimeoutMS:10000}).then(()=> console.log("Database connected"));
-
-app.get('/',(req,res)=>{
-    res.send("welcome");
-})
-
 
 
 app.listen(PORT_APP, (err) => {
