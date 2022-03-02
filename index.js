@@ -14,8 +14,8 @@ const url = DB_URL;
 app.use(
     cors({
         credentials: true,
-        // origin:'*'
-        origin: 'http://localhost:3000'
+        origin:'*'
+        // origin: 'http://localhost:3000'
     // origin:'https://examination-helper-frontend.vercel.app'
  }));
 
