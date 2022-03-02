@@ -3,6 +3,7 @@ const auth = require('../schemas/Auth/auth');
 const authModel = mongoose.model(auth.name);
 const bcrypt = require('bcryptjs');
 
+
 const createInstance = (input)=>{
     const passwordHash = bcrypt.hashSync(input.Password);
     input.Password = passwordHash;
@@ -11,6 +12,7 @@ const createInstance = (input)=>{
 }
 
 exports.register = async (req,res)=>{
+    console.log("here");
     const {
         Email,Password
     } = req.body;
@@ -49,8 +51,16 @@ exports.login = async (req,res)=>{
         }
     }
     else{
-        res.json({message:"email not registered"});
+        res.status(400).json({message:"email not registered"});
     }
+}
 
-   
+exports.logout = async(req,res)=>{
+    console.log(req.cookies.jwt)
+    res.clearCookie('jwt');
+    res.status(200).json({message:'User logged out'});
+}
+
+exports.checkLogin = async (req,res)=>{
+    res.status(200).json({message:'already logged in'});
 }

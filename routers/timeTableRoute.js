@@ -5,7 +5,7 @@ const authenticate = require('../middleware/authenticate');
 
 router.post('/add-timetable',authenticate,addTimetable);    //ok add or/and update timetable
 
-router.get('/get-timetable',authenticate,getTimetable); //ok
+router.post('/get-timetable',authenticate,getTimetable); //ok
 
 router.delete('/delete-timetable/:outerid/:id',authenticate, deleteTimetable);
 

@@ -7,6 +7,7 @@ const user = mongoose.model(auth.name);
 const authenticate = async(req,res,next) =>{
     try{
         const token = req.cookies.jwt;
+      //  console.log("token   ",req.cookies);
         const verifyToken = jwt.verify(token,TOKEN_SECRET);
         const rootUser =await user.findOne({_id:verifyToken._id , "Tokens.token":token});
         if(!rootUser){
@@ -18,8 +19,8 @@ const authenticate = async(req,res,next) =>{
         console.log("user authenticated successfully");
         next();
     }catch(err){
-        res.status(401).json({message:'token not found',error:err.message});
-        console.log(err)
+        res.status(400).json({message:'token not found'});
+        console.log("token not found ")
     }
     
 }

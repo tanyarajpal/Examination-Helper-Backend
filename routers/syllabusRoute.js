@@ -11,6 +11,6 @@ router.post('/create-syllabus',authenticate,addSyllabus);       //ok
 
 router.delete('/delete-syllabus/:id',authenticate,deleteSyllabus ); //ok
 
-router.put('/update-syllabus/:id',authenticate,updateSyllabus);    //ok but change
+router.post('/update-syllabus/:id',authenticate,updateSyllabus);    //ok but change
 
 module.exports = router;

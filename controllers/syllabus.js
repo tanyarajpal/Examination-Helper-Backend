@@ -20,7 +20,6 @@ function readAll(){
 }
 function update(id,newData){
     return syllabusModel.findByIdAndUpdate(id,newData).exec();
-
 }
 
 exports.getSyllabus =async (req,res)=>{
@@ -32,11 +31,10 @@ exports.getSyllabus =async (req,res)=>{
 }
 
 exports.getSubSyllabus = async (req,res)=>{
-    console.log("tanya",req.params);
     read(req.params.id).then((data)=>{
         res.json(data);
     }).catch((err)=>{
-        console.log("error fetching data "+ err);
+       res.status(400).json("error fetching data "+ err);
     });
 }
 
@@ -44,7 +42,7 @@ exports.addSyllabus =async (req,res) =>{
      createInstance(req.body).then((data)=>{
         res.status(200).json({message:"syllabus added successfully"});
     }).catch((err)=>{
-        console.log("error posting data\n "+ err.message);
+        res.status(400).json({message:"error adding syllabus",error:err})
     });
 }
 
@@ -61,7 +59,7 @@ exports.deleteSyllabus = async(req, res) => {
 
 exports.updateSyllabus = async(req,res) =>{
     update(req.params.id,req.body).then(()=>{
-        res.status(200).json({message:"syllabus updated successfully"});
+        res.status(200).json({message:"syllabus updated successfully",data:req.body});
     }).catch((err)=>{
         res.status(400).json({message:"error updating data",error:err.message});
     })
