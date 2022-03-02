@@ -10,15 +10,17 @@ const cors = require('cors');
 const app = express();
 const url = DB_URL;
 
-app.use(
-    cors({
-        credentials: true,
-        // origin: 'http://localhost:3000'
-        origin:'https://examination-helper-frontend.vercel.app'
- }));
+
+// app.use(
+//     cors({
+//         credentials: true,
+//         // origin: 'http://localhost:3000'
+//         origin:'https://examination-helper-frontend.vercel.app'
+//  }));
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send("welcome");
