@@ -21,7 +21,7 @@ const url = DB_URL;
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors());
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send("welcome");
