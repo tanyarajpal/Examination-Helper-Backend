@@ -45,6 +45,7 @@ exports.login = async (req,res)=>{
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
                 httpOnly: false,
+                
             })
             console.log("authentication successfull");
             res.status(200).send("login successfull");
