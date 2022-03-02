@@ -16,7 +16,7 @@ app.use(
         credentials: true,
         // origin:'*'
         // origin: 'http://localhost:3000'
-        origin:'https://examination-helper-frontend.vercel.app'
+    origin:'https://examination-helper-frontend.vercel.app'
  }));
 
 app.use(express.json());
