@@ -48,7 +48,7 @@ exports.login = async (req,res)=>{
                 
             })
             console.log("authentication successfull");
-            res.status(200).send("login successfull");
+            res.status(200).json("login successfull");
         }
     }
     else{
