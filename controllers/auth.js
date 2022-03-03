@@ -46,7 +46,7 @@ exports.login = async (req,res)=>{
                 expires: new Date(Date.now() + 100000000),
                 httpOnly: true,
                 sameSite:"lax" ,
-                secure:true   
+                // secure:true   
             })
             console.log("authentication successfull");
             res.status(200).json("login successfull");
