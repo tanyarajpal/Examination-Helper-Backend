@@ -44,8 +44,9 @@ exports.login = async (req,res)=>{
             const token = await user.generateAuthToken(user);
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
-                httpOnly: false,
-                
+                httpOnly: true,
+                sameSite:"lax" ,
+                secure:true   
             })
             console.log("authentication successfull");
             res.status(200).json("login successfull");
