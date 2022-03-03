@@ -43,7 +43,6 @@ exports.login = async (req,res)=>{
         else{
             const token = await user.generateAuthToken(user);
             res.cookie('jwt',token,{
-                
                 expires: new Date(Date.now() + 100000000),
                 httpOnly: true,
                 sameSite:"lax" ,
