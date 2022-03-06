@@ -20,7 +20,7 @@ app.use(
         
         // origin:'*',
         credentials: true,
-        origin: 'http://localhost:3000'
+        //origin: 'http://localhost:3000'
     //   origin:'https://examination-helper-frontend.vercel.app'
  }));
 // app.use(cors());

@@ -47,7 +47,7 @@ exports.login = async (req,res)=>{
                 // secure:true ,
                 // httpOnly: true,
                 sameSite:false,
-                domain: "vercel.app",
+                // domain: "vercel.app",
                   
             
             })
