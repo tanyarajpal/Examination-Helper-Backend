@@ -47,7 +47,7 @@ exports.login = async (req,res)=>{
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
                 secure:true ,
-                httpOnly: true,
+                // httpOnly: true,
                 //secure:false
                 sameSite:"none",
                 // signed:true
