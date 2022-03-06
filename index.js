@@ -15,14 +15,14 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-app.use(
-    cors({
+// app.use(
+//     cors({
         
-        // origin:'*',
-        credentials: true,
-        // origin: 'http://localhost:3000'
-    //   origin:'https://examination-helper-frontend.vercel.app'
- }));
+//         // origin:'*',
+//         credentials: true,
+//         // origin: 'http://localhost:3000'
+//     //   origin:'https://examination-helper-frontend.vercel.app'
+//  }));
 // app.use(cors());
 
 app.get('/',(req,res)=>{
