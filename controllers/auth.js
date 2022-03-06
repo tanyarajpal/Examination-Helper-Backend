@@ -46,7 +46,7 @@ exports.login = async (req,res)=>{
                 expires: new Date(Date.now() + 100000000),
                 httpOnly: true,
                 sameSite:"lax" ,
-                domain: "vercel.app"
+                // domain: "vercel.app"
                 // secure:true   
             
             })
