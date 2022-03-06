@@ -45,9 +45,9 @@ exports.login = async (req,res)=>{
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
                 // secure:true ,
-                httpOnly: false,
-                sameSite:'none',
-                // domain: "vercel.app",
+                // httpOnly: true,
+                sameSite:false,
+                domain: "vercel.app",
                   
             
             })

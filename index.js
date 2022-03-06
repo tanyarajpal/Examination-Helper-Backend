@@ -1,4 +1,5 @@
 // const {PORT,DB_URL} = require('./configuration');
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const syllabusRoutes = require('./routers/syllabusRoute');
@@ -19,7 +20,7 @@ app.use(
         
         // origin:'*',
         credentials: true,
-        // origin: 'http://localhost:3000'
+        origin: 'http://localhost:3000'
     //   origin:'https://examination-helper-frontend.vercel.app'
  }));
 // app.use(cors());
