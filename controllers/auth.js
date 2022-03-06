@@ -44,10 +44,10 @@ exports.login = async (req,res)=>{
             const token = await user.generateAuthToken(user);
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
-                httpOnly: false,
-                sameSite:"Lax" ,
-                // domain: "vercel.app"
-                secure:true   
+                httpOnly: true,
+                // sameSite:"Lax" ,
+                // // domain: "vercel.app"
+                // secure:true   
             
             })
             console.log("authentication successfull");
