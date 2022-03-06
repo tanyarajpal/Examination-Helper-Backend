@@ -37,15 +37,18 @@ exports.login = async (req,res)=>{
     const user = await authModel.findOne({Email:Email});
     if(user){
         const isMatch = await bcrypt.compareSync(Password,user.Password);
+       // console.log(isMatch);
         if(!isMatch){
             res.status(400).json({error:"password doesn't match"});
         }
         else{
             const token = await user.generateAuthToken(user);
+            //console.log(token);
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
-                // secure:true ,
-                // httpOnly: true,
+                secure:true ,
+                httpOnly: true,
+                //secure:false
                 sameSite:false,
                 // domain: "vercel.app",
                   
