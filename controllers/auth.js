@@ -44,8 +44,8 @@ exports.login = async (req,res)=>{
             const token = await user.generateAuthToken(user);
             res.cookie('jwt',token,{
                 expires: new Date(Date.now() + 100000000),
-                secure:true ,
-                httpOnly: true,
+                // secure:true ,
+                httpOnly: false,
                 sameSite:'none',
                 // domain: "vercel.app",
                   
