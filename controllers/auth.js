@@ -44,19 +44,22 @@ exports.login = async (req,res)=>{
         else{
             const token = await user.generateAuthToken(user);
             //console.log(token);
-            res.cookie('jwt',token,{
-                expires: new Date(Date.now() + 100000000),
-                secure:true ,
-                // httpOnly: true,
-                //secure:false
-                sameSite:"none",
-                // signed:true
-                // domain: "vercel.app",
+            // res.cookie('jwt',token,{
+            //     expires: new Date(Date.now() + 100000000),
+            //     secure:true ,
+            //     // httpOnly: true,
+            //     //secure:false
+            //     sameSite:"none",
+            //     // signed:true
+            //     // domain: "vercel.app",
                   
             
-            })
+            // })
             console.log("authentication successfull");
-            res.status(200).json("login successfull");
+            res.status(200).json({
+                message:"login successfull",
+                token:"Bearer " +token
+            });
         }
     }
     else{
