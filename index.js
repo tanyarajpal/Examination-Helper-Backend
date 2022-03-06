@@ -1,14 +1,14 @@
-const {PORT,DB_URL} = require('./configuration');
+// const {PORT,DB_URL} = require('./configuration');
 const express = require('express');
 const mongoose = require('mongoose');
 const syllabusRoutes = require('./routers/syllabusRoute');
 const timeTableRoutes = require('./routers/timeTableRoute');
 const authRoutes = require('./routers/authRoute');
 const cookieParser = require("cookie-parser");
-const PORT_APP = PORT || 4000;
+const PORT_APP = process.env.PORT || 4000;
 const cors = require('cors');
 const app = express();
-const url = DB_URL;
+const url = process.env.DB_URL;
 
 
 app.use(express.json());
