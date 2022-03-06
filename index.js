@@ -15,27 +15,27 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-app.use(
-    cors({
+// app.use(
+//     cors({
         
-        // origin:'*',
-        credentials: true,
-        origin: 'http://localhost:3000'
-    //   origin:'https://examination-helper-frontend.vercel.app'
- }));
+//         // origin:'*',
+//         credentials: true,
+//         origin: 'http://localhost:3000'
+//     //   origin:'https://examination-helper-frontend.vercel.app'
+//  }));
 // app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send("welcome");
 })
 
-// app.use((req, res, next) => {
-//     //res.append('Access-Control-Allow-Origin', ['https://examination-helper-frontend.vercel.app']);
-//     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.append('Access-Control-Allow-Headers', 'Content-Type');
-//     res.append('Access-Control-Allow-Credentials', 'true');
-//     next();
-// });
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['https://examination-helper-frontend.vercel.app']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    res.append('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 app.use('/api/examination-helper/syllabus',syllabusRoutes);
 app.use('/api/examination-helper/timetable',timeTableRoutes);
