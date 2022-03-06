@@ -7,7 +7,7 @@ router.post('/register',register);  //ok
 
 router.post('/login',login);    //ok
 
-router.get('/logout',logout);
+router.get('/logout',authenticate,logout);
 
 router.get('/login',authenticate,checkLogin);
 
