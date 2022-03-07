@@ -12,7 +12,7 @@ const createInstance = (input)=>{
 }
 
 exports.register = async (req,res)=>{
-    console.log("here");
+   
     const {
         Email,Password
     } = req.body;

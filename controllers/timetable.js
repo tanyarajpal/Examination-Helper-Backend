@@ -63,8 +63,8 @@ exports.deleteTimetable = async (req,res)=>{
     } = req.params
  await timeTableModel.findByIdAndUpdate(
         outerid, { $pull: { "TimeTable": { _id: id } } }, { safe: true, upsert: true },
-        async function(err, node) {
-            if (err) { return handleError(res, err); }
+       async function(err, node) {
+           if (err) { return handleError(res, err); }
             const data = await timeTableModel.findById(outerid).exec();
             return res.status(200).json({message :"deleted",data:data});
         }).exec();
