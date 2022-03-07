@@ -66,7 +66,7 @@ exports.deleteTimetable = async (req,res)=>{
        async function(err, node) {
            if (err) { return handleError(res, err); }
             const data = await timeTableModel.findById(outerid).exec();
-            return res.status(200).json({message :"deleted",data:data});
+            res.status(200).json({message :"deleted",data:data});
         }).exec();
 }
 
